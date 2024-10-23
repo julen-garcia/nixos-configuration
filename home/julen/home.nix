@@ -205,19 +205,19 @@
       }
     ];
 
-  #   powerdevil = {
-  #     AC = {
-  #       powerButtonAction = "nothing";
-  #       autoSuspend = {
-  #         action = "sleep";
-  #         idleTimeout = 900; # In seconds (15 minutes)
-  #       };
-  #       turnOffDisplay = {
-  #         idleTimeout = 300; # In seconds (5 minutes)
-  #         idleTimeoutWhenLocked = "immediately";
-  #       };
-  #     };
-  #   };
+    powerdevil = {
+      AC = {
+        powerButtonAction = "nothing";
+        autoSuspend = {
+          action = "sleep";
+          idleTimeout = 900; # In seconds (15 minutes)
+        };
+        turnOffDisplay = {
+          idleTimeout = 300; # In seconds (5 minutes)
+          idleTimeoutWhenLocked = "immediately";
+        };
+      };
+    };
    };
 
   programs.konsole = {
