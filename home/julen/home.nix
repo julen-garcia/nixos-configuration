@@ -143,7 +143,7 @@
     #   name = "Launch Dolphin";
     #   key = "Ctrl+Alt+E";
     #   command = "dolphin";
-    };
+    # };
 
     input.keyboard = {
       layouts = [ 
@@ -218,7 +218,7 @@
   #       };
   #     };
   #   };
-  # };
+   };
 
   programs.konsole = {
     enable = true;
