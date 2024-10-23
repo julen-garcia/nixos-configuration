@@ -16,7 +16,5 @@
     createHome = true;
   };
 
-  users.motd = "this is my wonderful motd";
-
   nix.settings.trusted-users = [ "julen" ];
 }
