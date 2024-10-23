@@ -34,6 +34,7 @@
             ./hosts/test_vm/configuration.nix
             ];
           };
+        };
 
       # Home manager configurations
       # Available through 'home-manager switch --flake .#username@hostname'
@@ -48,5 +49,4 @@
         };
       };
     };
-  };
 }
