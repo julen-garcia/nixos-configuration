@@ -139,11 +139,11 @@
       };
     };
 
-    # hotkeys.commands."launch-dolphin" = {
-    #   name = "Launch Dolphin";
-    #   key = "Ctrl+Alt+E";
-    #   command = "dolphin";
-    # };
+    hotkeys.commands."launch-dolphin" = {
+      name = "Launch Dolphin";
+      key = "Ctrl+Alt+E";
+      command = "dolphin";
+    };
 
     input.keyboard = {
       layouts = [ 
