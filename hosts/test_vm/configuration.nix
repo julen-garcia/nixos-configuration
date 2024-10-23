@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ../common.nix
       ../../home/users.nix
+      ../../modules/kde.nix
     ];
 
   # Bootloader.
