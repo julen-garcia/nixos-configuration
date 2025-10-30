@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "firefox-addons": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dir": "pkgs/firefox-addons",
+        "lastModified": 1761624227,
+        "narHash": "sha256-AtfbVuB48QY0Ou3upSFEsYBJNmW1+S84nWQwZSzHQOY=",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "rev": "23ad46145f62fcade09f1c609c660c45444f72b5",
+        "type": "gitlab"
+      },
+      "original": {
+        "dir": "pkgs/firefox-addons",
+        "owner": "rycee",
+        "repo": "nur-expressions",
+        "type": "gitlab"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -37,10 +59,52 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1761373498,
+        "narHash": "sha256-Q/uhWNvd7V7k1H1ZPMy/vkx3F8C13ZcdrKjO7Jv7v0c=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "6a08e6bb4e46ff7fcbb53d409b253f6bad8a28ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761078382,
+        "narHash": "sha256-JNJesbe9MMN1Brq41BHEpuH+Z+Zg74y/nI5AFZX84Vw=",
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "rev": "27dfa61b64d0cdb8e4ba6f3aaa4d4e067d64cb5c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "plasma-manager": "plasma-manager"
       }
     }
   },
