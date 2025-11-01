@@ -14,6 +14,11 @@
     };
   };
 
+  # enable remote desktop # TODO: test this
+  # services.xrdp.enable = true;
+  # services.xrdp.defaultWindowManager = "startplasma-x11";
+  # services.xrdp.openFirewall = true;
+
   environment.systemPackages = with pkgs; [
     kdePackages.isoimagewriter
     kdePackages.skanpage
