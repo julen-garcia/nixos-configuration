@@ -11,14 +11,27 @@
 
   programs.fish = {
     enable = true;
+    shellAliases = {
+      raspi5 = "ssh raspi5";
+      raspiUrduliz = "ssh raspiUrduliz";
+      serverSope = "ssh serverSope";
+      vim = "nvim";
+      "..." = "cd ../..";
+      };
     interactiveShellInit = ''
       set fish_greeting ""
+      oh-my-posh init fish --config https://raw.githubusercontent.com/julen-garcia/oh-my-posh-themes/refs/heads/main/amro_customized.omp.json | source
     '';
   };
 
-  programs.starship = {
+  programs.oh-my-posh = {
     enable = true;
   };
+
+  # replaced by oh-my-posh
+  # programs.starship = {
+  #   enable = true;
+  # };
 
   programs.tmux = {
     enable = true;
@@ -61,6 +74,11 @@
 
   # General purpose fuzzy finder (Yazi optional dependency)
   programs.fzf = {
+    enable = true;
+  };
+
+  # CLI file editor
+  programs.neovim = {
     enable = true;
   };
 

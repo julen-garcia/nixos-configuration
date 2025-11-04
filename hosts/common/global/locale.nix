@@ -5,7 +5,7 @@
   console.keyMap = "es";
 
   # Select internationalisation properties.
-  i18n.supportedLocales = lib.mkDefault [
+  i18n.extraLocales = lib.mkDefault [
     "en_US.UTF-8/UTF-8"
   ];
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";

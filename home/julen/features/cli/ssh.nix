@@ -14,6 +14,12 @@
         forwardAgent = true;
         extraOptions.StreamLocalBindUnlink = "yes";
       };
+      "serverSope" = {
+        hostname = "server.trusted";
+        user = "julen";
+        forwardAgent = true;
+        extraOptions.StreamLocalBindUnlink = "yes";
+      };
     };
   };
 }
