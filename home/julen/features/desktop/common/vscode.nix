@@ -13,6 +13,9 @@
         mkhl.direnv
         gruntfuggly.todo-tree
         yzhang.markdown-all-in-one
+        streetsidesoftware.code-spell-checker
+        # git
+        eamodio.gitlens
         # Better configuration files support
         tamasfe.even-better-toml
         redhat.vscode-xml
@@ -33,11 +36,16 @@
         ms-python.vscode-pylance
         ms-python.pylint
         ms-python.debugpy
+        #ms-python.vscode-python-envs
+        #kevinrose.vsc-python-indent
+        oderwat.indent-rainbow
         # Rust
         rust-lang.rust-analyzer
         # Remote development extensions
         ms-vscode-remote.remote-ssh
         ms-vscode-remote.remote-containers
+        # Theme
+        pkief.material-icon-theme
       ];
       userSettings = {
         "workbench.colorTheme" = "Default Dark Modern";
@@ -48,6 +56,12 @@
         "telemetry.feedback.enabled" = false;
         "telemetry.telemetryLevel" = "off";
         "remote.SSH.useLocalServer" = false; # Fix SSH connection issues
+        "chat.disableAIFeatures" = true;
+        "files.autoSave" = "afterDelay";
+        "editor.rulers" = [120];
+        "workbench.iconTheme" = "material-icon-theme";
+        "material-icon-theme.folders.theme" = "specific";
+        "material-icon-theme.folders.color" = "#90a4ae";
       };
     };
   };
