@@ -12,14 +12,21 @@
     yubikey-manager
   ];
 
-  # Get a notification when the yubikey is waiting for a touch
-  systemd.user.services.yubikey-touch-detector = {
-    description = "Yubikey touch detector";
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.yubikey-touch-detector}/bin/yubikey-touch-detector --libnotify";
-    };
+  programs.yubikey-touch-detector = {
+    enable = true;
+    # unixSocket = false;
+    # libnotify = true;
   };
+
+  # The notifier works without this
+  # # Get a notification when the yubikey is waiting for a touch
+  # systemd.user.services.yubikey-touch-detector = {
+  #   description = "Yubikey touch detector";
+  #   wantedBy = [ "multi-user.target" ];
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.yubikey-touch-detector}/bin/yubikey-touch-detector --libnotify";
+  #   };
+  # };
 
   # Allow use of sudo with yubikey
   security.pam.services = {
