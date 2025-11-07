@@ -62,7 +62,7 @@
         "workbench.iconTheme" = "material-icon-theme";
         "material-icon-theme.folders.theme" = "specific";
         "material-icon-theme.folders.color" = "#90a4ae";
-        "todo-tree.general.tags" = " 'BUG', 'FIXME', 'TODO', '[ ]', '[x]', 'TEST'";
+        "todo-tree.general.tags" = ["BUG", "FIXME", "TODO", "[ ]", "[x]", "TEST"];
         "todo-tree.highlights.defaultHighlight" = "{
           'icon': 'alert',
           'type': 'tag',
