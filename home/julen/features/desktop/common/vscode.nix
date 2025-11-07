@@ -72,6 +72,46 @@
           "iconColour" = "blue";
           "gutterIcon" = true;
           };
+        "todo-tree.highlights.customHighlight" = {
+          "TODO" = {
+            "icon" = "checkbox";
+            "foreground" = "white";
+            "background" = "orange";
+            "iconColour" = "orange";
+          };
+          "FIXME" = {
+            "icon" = "tools";
+            "foreground" = "white";
+            "background" = "hotpink";
+            "iconColour" = "hotpink";
+          };
+          "BUG" = {
+            "icon" = "bug";
+            "foreground" = "white";
+            "background" = "crimson";
+            "iconColour" = "crimson";
+          };
+          "TEST" = {
+            "icon" = "alert";
+            "foreground" = "white";
+            "background" = "mediumvioletred";
+            "iconColour" = "mediumvioletred";
+          };
+          "[ ]" = {
+            "icon" = "check";
+            "foreground" = "black";
+            "background" = "white";
+            "iconColour" = "yellow";
+            "opacity" = 10;
+          };
+          "[x]" = {
+            "icon" = "check";
+            "foreground" = "white";
+            "background" = "mediumaquamarine";
+            "iconColour" = "mediumaquamarine";
+            "opacity" = 10;
+          };
+        };
       };
     };
   };
