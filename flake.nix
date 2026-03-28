@@ -58,6 +58,11 @@
         hostname = "sheldon";
         users = ["julen"];
       };
+
+      penny = makeNixosConfig {
+        hostname = "penny";
+        users = ["julen"];
+      }
     };
   };
 }

@@ -30,9 +30,7 @@ in {
       "vboxusers"
       "wheel"
     ];
-    # openssh.authorizedKeys.keyFiles = [
-    #   ../../../../home/julen/ssh-gpg.pub
-    # ];
+    openssh.authorizedKeys.keys = ["sk-ssh-ed25519@openssh.com AAAAGnNrLXNzaC1lZDI1NTE5QG9wZW5zc2guY29tAAAAILxQX6l7c6W8tX8fcsjcdl7aH5DxaPkrGPFAzaOs1mnxAAAABHNzaDo= julen"];
     home = "/home/julen";
     createHome = true;
     shell = pkgs.fish;
