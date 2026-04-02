@@ -7,6 +7,7 @@
     ../common/users/julen
     ../../modules/tailscale.nix
     ../../modules/quiet-boot.nix
+    ../../modules/zfs.nix
   ];
 
   # Create a swap file for hibernation.
