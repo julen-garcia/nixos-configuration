@@ -35,7 +35,7 @@
 
 
   # Use latest kernel available
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
     # Networking
   networking = {
