@@ -8,6 +8,7 @@
     ../../modules/tailscale.nix
     ../../modules/quiet-boot.nix
     ../../modules/zfs.nix
+    ./services/samba.nix
   ];
 
   # Create a swap file for hibernation.
