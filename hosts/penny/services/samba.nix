@@ -35,13 +35,6 @@
         "guest ok" = "no";
         "valid users" = "julen, nagore";
       };
-      media = {
-        path = "/zstorage/media";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "no";
-        "valid users" = "julen";
-      };
     };
   };
 
@@ -49,6 +42,7 @@
   services.samba-wsdd = {
     enable = false;
     openFirewall = true;
+    hostname = "penny.junaga.com"
   };
 
   networking.firewall.allowPing = true;
