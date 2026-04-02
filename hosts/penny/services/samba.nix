@@ -42,7 +42,7 @@
   services.samba-wsdd = {
     enable = false;
     openFirewall = true;
-    hostname = "penny.junaga.com"
+    hostname = "penny.junaga.com";
   };
 
   networking.firewall.allowPing = true;
