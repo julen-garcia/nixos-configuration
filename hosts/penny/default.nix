@@ -28,6 +28,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # ZFS related options
+  boot.supportedFilesystems = [ "zfs" ];
   zfs = {
     enable = true;
   };
