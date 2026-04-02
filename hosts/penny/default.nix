@@ -43,7 +43,7 @@
     useNetworkd = true;
     hostName = "penny";
     domain = "junaga.com";
-    hostId = "728fc5d";
+    hostId = "061b8a2f";
   };
   systemd.network.wait-online.enable = true;
 
