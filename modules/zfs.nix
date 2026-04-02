@@ -5,11 +5,6 @@
   options.zfs = {
     enable = lib.mkEnableOption "Enable zfs support";
 
-    environmentFile = lib.mkOption {
-      type = lib.types.path;
-      description = "Secrets environment file";
-    };
-
   };
 
   config = lib.mkIf config.zfs.enable {
