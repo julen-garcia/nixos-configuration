@@ -14,17 +14,6 @@
 
   config = lib.mkIf config.zfs.enable {
 
-    systemd.services.zfs-zed = lib.mkIf config.zfs.ntfy.enable {
-      preStart = ''
-        sed -i '/^ZED_NTFY_ACCESS_TOKEN=/d' ${zedRc}
-        echo "ZED_NTFY_ACCESS_TOKEN=$(cat ${config.zfs.ntfy.tokenFile})" >> ${zedRc}
-      '';
-    };
-
-    environment.systemPackages = [
-      pkgs.mailutils
-    ];
-
     boot = {
       supportedFilesystems = [ "zfs" ];
       zfs = {
