@@ -26,10 +26,27 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # ZFS related options
+  zfs = {
+    enable = true;
+  };
+  boot.zfs.extraPools = [ "zstorage" ];
+
+
   # Use latest kernel available
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "sheldon"; # Define your hostname.
+    # Networking
+  networking = {
+    useDHCP = true;
+    useNetworkd = true;
+    hostName = "penny";
+    domain = "junaga.com";
+    hostId = "728fc5d";
+  };
+  systemd.network.wait-online.enable = true;
+
+  services.tailscale.useRoutingFeatures = "server";
 
   # # Enable Wake On Lan
   # networking.interfaces.enp5s0.wakeOnLan.enable = true;
