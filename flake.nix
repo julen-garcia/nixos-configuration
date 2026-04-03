@@ -41,7 +41,7 @@
 
 
 
-  outputs = inputs@ { self, nixpkgs, home-manager, plasma-manager, firefox-addons, ... }: 
+  outputs = inputs@ { self, nixpkgs, home-manager, plasma-manager, firefox-addons, sops-nix, ... }: 
   let
     makeNixosConfig = { hostname, users, system ? "x86_64-linux" }: 
     nixpkgs.lib.nixosSystem {
