@@ -5,12 +5,12 @@
 }: let
   ifGroupExist = groups: builtins.filter (group: builtins.hasAttr group config.users.groups) groups;
 in {
-  sops.secrets.julen-hashed-password.neededForUsers = true;
+  #sops.secrets.julen-hashed-password.neededForUsers = true;
 
   users.users.julen = {
     isNormalUser = true;
     description = "Julen";
-    hashedPasswordFile = config.sops.secrets.julen-hashed-password.path;
+    #hashedPasswordFile = config.sops.secrets.julen-hashed-password.path;
     uid = 1000;
     extraGroups = ifGroupExist [
       "users"
