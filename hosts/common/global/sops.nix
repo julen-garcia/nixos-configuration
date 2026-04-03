@@ -14,7 +14,7 @@
 
   sops = {
     defaultSopsFile = ../secrets.yaml;
-    age.keyFile = "/etc/ssh/ssh_host_ed25519_key"
+    age.keyFile = "/etc/ssh/ssh_host_ed25519_key";
   };
 }
 
