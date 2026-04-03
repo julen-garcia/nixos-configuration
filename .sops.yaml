@@ -1,0 +1,9 @@
+keys:
+  - &sheldon age1ssutuhg3wjtr7gjt44ljnrluhajdpgshmppj665lhwecelk2ydhqufc680
+  - &penny age1jjuj8k36d62hktlfqntv2l4kcnn0jpzgtfckxqja03rj05pz6s4qu6mns5
+creation_rules:
+  - path_regex: hosts/common/secrets.ya?ml$
+    key_groups:
+      - age:
+          - *sheldon
+          - *penny

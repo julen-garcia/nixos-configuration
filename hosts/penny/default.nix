@@ -3,10 +3,13 @@
 {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
+    ./disko-config.nix
     ../common/global
     ../common/users/julen
     ../../modules/tailscale.nix
     ../../modules/quiet-boot.nix
+    ../../modules/zfs.nix
+    ./services/samba.nix
   ];
 
   # Create a swap file for hibernation.
@@ -26,10 +29,28 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel available
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # ZFS related options
+  boot.supportedFilesystems = [ "zfs" ];
+  zfs = {
+    enable = true;
+  };
+  boot.zfs.extraPools = [ "zstorage" ];
 
-  networking.hostName = "sheldon"; # Define your hostname.
+
+  # Use latest kernel available
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+
+    # Networking
+  networking = {
+    useDHCP = true;
+    useNetworkd = true;
+    hostName = "penny";
+    domain = "junaga.com";
+    hostId = "061b8a2f";
+  };
+  systemd.network.wait-online.enable = true;
+
+  services.tailscale.useRoutingFeatures = "server";
 
   # # Enable Wake On Lan
   # networking.interfaces.enp5s0.wakeOnLan.enable = true;
