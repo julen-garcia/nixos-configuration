@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
+    ./disko-config.nix
     ../common/global
     ../common/users/julen
     ../../modules/tailscale.nix
