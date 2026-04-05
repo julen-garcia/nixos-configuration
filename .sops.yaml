@@ -7,3 +7,8 @@ creation_rules:
       - age:
           - *sheldon
           - *penny
+  - path_regex: hosts/penny/secrets.ya?ml$
+    key_groups:
+      - age:
+        - *sheldon
+        - *penny
