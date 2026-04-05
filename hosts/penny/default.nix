@@ -6,9 +6,12 @@
     ./disko-config.nix
     ../common/global
     ../common/users/julen
+    ../../modules/containers.nix
+    ../../modules/zfs.nix
+    ../../modules/server.nix
     ../../modules/tailscale.nix
     ../../modules/quiet-boot.nix
-    ../../modules/zfs.nix
+
     ./services/samba.nix
   ];
 
