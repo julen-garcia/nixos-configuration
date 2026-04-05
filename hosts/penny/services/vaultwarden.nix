@@ -9,6 +9,18 @@
       "vaultwarden/admin-token" = {
         sopsFile = ../secrets.yaml;
       };
+      "vaultwarden/smtp_host" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_port" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_username" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_password" = {
+        sopsFile = ../secrets.yaml;
+      };
     };
     templates."vaultwarden-secrets.env" = {
       content = ''
