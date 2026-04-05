@@ -104,14 +104,14 @@ in
       group = cfg.group;
       package = pkgs.caddy.withPlugins {
         plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
-        hash = "sha256-utsK0Plt8cs0eR3BAl9EnaO2dqNxe+JwHy0vfrCDLqQ=";
+        hash = "sha256-pRrLBlYRaAyMYwPXeTy4WqWNRu/L9K6Mn2src11dGh8=";
       };
       globalConfig = 
       ''
         email {env.CF_EMAIL}
         acme_dns cloudflare {env.CF_API_TOKEN}
       '';
-       virtualHosts =
+      virtualHosts =
         (mapAttrs' (name: hostCfg:
           nameValuePair "${name}.${cfg.baseDomain}" {
             extraConfig = mkExtraConfig hostCfg;
