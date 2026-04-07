@@ -12,7 +12,11 @@ let
   mkExtraConfig = hostCfg:
     if hostCfg.httpsPort != null then
       ''
-        reverse_proxy https://${hostCfg.ip}:${toString hostCfg.httpsPort} {
+        tls {
+  	  dns cloudflare {env.CF_API_TOKEN}
+	  resolvers 1.1.1.1
+	}
+	reverse_proxy https://${hostCfg.ip}:${toString hostCfg.httpsPort} {
           transport http {
             tls_insecure_skip_verify
           }
@@ -100,6 +104,7 @@ in
 
     services.caddy = {
       enable = true;
+      logFormat = "level DEBUG";
       user = cfg.user;
       group = cfg.group;
       package = pkgs.caddy.withPlugins {
