@@ -40,36 +40,20 @@
   };
 
 
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-linux" ];
 
-  outputs = inputs@ { self, nixpkgs, home-manager, plasma-manager, firefox-addons, sops-nix, ... }: 
-  let
-    makeNixosConfig = { hostname, users, system ? "x86_64-linux" }: 
-    nixpkgs.lib.nixosSystem {
-      inherit system;
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/${hostname}
-        (import ./modules/home-manager-config.nix {
-          inherit hostname users;
-        })
+      imports = [
+        ./flake/hosts.nix
+        ./flake/nixos-configs.nix
+        ./flake/nixos-overlays.nix
       ];
-    };
-  in {
 
-    overlays = import ./overlays {inherit inputs;}; #TODO: ver que es esto
-
-    # NixOS configurations
-    # Available through 'nixos-rebuild switch --flake .#hostname'
-    nixosConfigurations = {
-      sheldon = makeNixosConfig {
-        hostname = "sheldon";
-        users = ["julen"];
-      };
-
-      penny = makeNixosConfig {
-        hostname = "penny";
-        users = ["julen"];
+      perSystem = { system, pkgs, ... }: {
+        # You can put perSystem packages, devShells, checks, etc. here later.
+        # Example:
+        # packages.hello = pkgs.hello;
       };
     };
-  };
 }
