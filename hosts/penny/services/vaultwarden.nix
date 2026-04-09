@@ -1,0 +1,61 @@
+{ config, ... }:
+{
+  # Import the needed secrets
+  sops = {
+    secrets = {
+      "vaultwarden/smtp-from-email" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/admin-token" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_host" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_port" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_username" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "vaultwarden/smtp_password" = {
+        sopsFile = ../secrets.yaml;
+      };
+    };
+    templates."vaultwarden-secrets.env" = {
+      content = ''
+        ADMIN_TOKEN=${config.sops.placeholder."vaultwarden/admin-token"}
+        SMTP_FROM=${config.sops.placeholder."vaultwarden/smtp-from-email"}
+        SMTP_HOST=${config.sops.placeholder."vaultwarden/smtp_host"}
+        SMTP_PORT=${config.sops.placeholder."vaultwarden/smtp_port"}
+        SMTP_USERNAME=${config.sops.placeholder."vaultwarden/smtp_username"}
+        SMTP_PASSWORD=${config.sops.placeholder."vaultwarden/smtp_password"}
+        
+      '';
+    };
+  };
+
+  services.vaultwarden = {
+    enable = true;
+    config = {
+      DOMAIN = "https://bitwarden.junaga.com";
+      SIGNUPS_ALLOWED = false;
+      ROCKET_ADDRESS = "127.0.0.1";
+      ROCKET_PORT = 8222;
+      ROCKET_LOG = "critical";
+      SMTP_SSL = false;
+      SMTP_FROM_NAME = "Bitwarden server";
+    };
+    environmentFile = config.sops.templates."vaultwarden-secrets.env".path;
+    backupDir = "/zstorage/internal-backups/vaultwarden";
+  };
+
+
+  reverseProxy.hosts.bitwarden.httpPort = config.services.vaultwarden.config.ROCKET_PORT;
+
+  # backup-offsite-landabarri.job.vaultwarden = {
+  #   paths = [
+  #     "/zstorage/internal-backups/vaultwarden"
+  #   ];
+  # };
+}

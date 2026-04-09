@@ -13,6 +13,8 @@
     ../../modules/quiet-boot.nix
 
     ./services/samba.nix
+    ./services/caddy.nix
+    ./services/vaultwarden.nix
   ];
 
   # Create a swap file for hibernation.
