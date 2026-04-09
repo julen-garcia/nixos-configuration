@@ -3,7 +3,7 @@ let
   inherit (lib) mkIf mkOption  mkEnableOption types filterAttrs mapAttrs' nameValuePair;
   cfg = config.reverseProxy;
 
-   # Only hosts that have at least one port defined
+  # Only hosts that have at least one port defined
   enabledHosts =
     filterAttrs (_: hostCfg:
       hostCfg.httpPort != null || hostCfg.httpsPort != null
@@ -12,6 +12,10 @@ let
   mkExtraConfig = hostCfg:
     if hostCfg.httpsPort != null then
       ''
+        tls {
+          dns cloudflare {env.CF_API_TOKEN}
+          resolvers 1.1.1.1
+        }
         reverse_proxy https://${hostCfg.ip}:${toString hostCfg.httpsPort} {
           transport http {
             tls_insecure_skip_verify
@@ -20,6 +24,10 @@ let
       ''
     else
       ''
+        tls {
+          dns cloudflare {env.CF_API_TOKEN}
+          resolvers 1.1.1.1
+        }
         reverse_proxy http://${hostCfg.ip}:${toString hostCfg.httpPort}
       '';
 in
