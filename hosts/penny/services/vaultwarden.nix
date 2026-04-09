@@ -47,7 +47,7 @@
       SMTP_FROM_NAME = "Bitwarden server";
     };
     environmentFile = config.sops.templates."vaultwarden-secrets.env".path;
-    # backupDir = "/zstorage/internal-backups/vaultwarden";
+    backupDir = "/zstorage/internal-backups/vaultwarden";
   };
 
 
