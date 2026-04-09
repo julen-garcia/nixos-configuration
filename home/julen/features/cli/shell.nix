@@ -85,6 +85,7 @@
 
   home.packages = with pkgs; [
     yq
+    curl
     neofetch
     file # File type detection (Yazi optional dependency)
     ffmpeg # Video thumbnail generation (Yazi optional dependency)

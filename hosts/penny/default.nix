@@ -15,6 +15,7 @@
     ./services/samba.nix
     ./services/caddy.nix
     ./services/vaultwarden.nix
+    ./services/healthchecks.nix
   ];
 
   # Create a swap file for hibernation.
