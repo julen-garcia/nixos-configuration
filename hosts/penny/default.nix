@@ -17,6 +17,8 @@
     ./services/vaultwarden.nix
     ./services/healthchecks.nix
     ./services/ntfy.nix
+    ./services/postfix.nix
+    ./services/pocket-id.nix
   ];
 
   # Import the needed secrets
