@@ -63,3 +63,37 @@ nix run github:nix-community/nixos-anywhere -- \
 --flake '.#<host_name>' \
 --target-host nixos@<host_ip>
 ```
+
+## Upgrade versions
+
+A reminder of what each file does:
+
+- `flake.lock` -> pins exact commits
+- `flake.nix` -> defines which branch/version you follow
+
+To change NixOS versions edit the versions defined in `flake.nix`, then run:
+
+```bash
+nix flake update
+sudo nixos-rebuild switch --upgrade-all --flake .#penny
+```
+
+## Test zfs notifications
+
+Create empty file:
+
+```bash
+cd /tmp
+dd if=/dev/zero of=sparse_file bs=1 count=0 seek=512M
+sudo zpool create test /tmp/sparse_file
+sudo zpool scrub test
+```
+
+> This should finish instantly since the test pool has no data. If you get an email you'll know ZED is working.
+
+Delete create pool and file:
+
+```bash
+zpool export test
+rm sparse_file
+```
