@@ -1,6 +1,7 @@
 {...}: {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks  = {
       "raspi5" = {
         hostname = "raspi5.trusted";
