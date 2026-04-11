@@ -16,6 +16,7 @@
     ./services/caddy.nix
     ./services/vaultwarden.nix
     ./services/healthchecks.nix
+    ./services/ntfy.nix
   ];
 
   # Create a swap file for hibernation.
