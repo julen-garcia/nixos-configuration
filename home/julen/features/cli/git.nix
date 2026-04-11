@@ -4,25 +4,27 @@
 
   programs.git = {
     enable = true;
-    userName = "Julen Garcia";
-    lfs.enable = true;
-    userEmail = "76101410+julen-garcia@users.noreply.github.com";
-    signing = {
-       signByDefault = true;
-    };
-    extraConfig = {
-        init.defaultBranch = "master";
-        # Merge on pull conflicts
-        pull.rebase = false;
-        # Automatically track remote branch
-        push.autoSetupRemote = true;
-        # Fetch removed upstream branches
-        fetch.prune = true;
-        # Sign all commits using ssh key
-        commit.gpgsign = true;
-        gpg.format = "ssh";
-        user.signingkey = "~/.ssh/id_ed25519_sk.pub";
+    settings = {
+      user = {
+        name = "Julen Garcia";
+        email = "76101410+julen-garcia@users.noreply.github.com";
       };
+      lfs.enable = true;
+      signing = {
+        signByDefault = true;
+      };
+      init.defaultBranch = "master";
+      # Merge on pull conflicts
+      pull.rebase = false;
+      # Automatically track remote branch
+      push.autoSetupRemote = true;
+      # Fetch removed upstream branches
+      fetch.prune = true;
+      # Sign all commits using ssh key
+      commit.gpgsign = true;
+      gpg.format = "ssh";
+      user.signingkey = "~/.ssh/id_ed25519_sk.pub";
+    };
   };
 
   programs.lazygit = {
