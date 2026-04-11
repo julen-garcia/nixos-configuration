@@ -19,6 +19,13 @@
     ./services/ntfy.nix
   ];
 
+  # Import the needed secrets
+  sops.secrets = {
+    "ntfy/penny-zfs-token" = {
+      sopsFile = ./secrets.yaml;
+    };
+  };
+
   # Create a swap file for hibernation.
   swapDevices = [
     {
@@ -37,9 +44,13 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # ZFS related options
-  boot.supportedFilesystems = [ "zfs" ];
   zfs = {
     enable = true;
+    ntfy = {
+      enable = true;
+      topic = "penny";
+      tokenFile = config.sops.secrets."ntfy/penny-zfs-token".path;
+    };
   };
   boot.zfs.extraPools = [ "zstorage" ];
 
