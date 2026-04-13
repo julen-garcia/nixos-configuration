@@ -3,11 +3,20 @@ let
   version = "26.4.0";
   port = 5006;
   dataPath = "/var/lib/actual-budget";
+  user = "actual-budget";
+  containerService = "podman-actual-budget";
+  backupPath = "/zstorage/internal-backups/actual-budget";
 in 
 {
 
+  users.groups.${user} = {};
+  users.users.${user} = {
+    group = "${user}";
+    isSystemUser = true;
+  };
+
   systemd.tmpfiles.rules = [
-    "d ${dataPath} 0775 root root -"
+    "d ${dataPath} 0775 ${user} ${user} -"
   ];
 
   # Import the needed secrets
@@ -40,6 +49,8 @@ in
     ];
 
     environment = {
+      PUID = toString config.users.users.${user}.uid;
+      PGID = toString config.users.groups.${user}.gid;
       ACTUAL_PORT = toString port;
       ACTUAL_LOGIN_METHOD = "openid";
       ACTUAL_ALLOWED_LOGIN_METHODS = "openid";
@@ -54,7 +65,7 @@ in
 
 
   reverseProxy.hosts.actual.httpPort = port;
-}
 
+}
 
 
