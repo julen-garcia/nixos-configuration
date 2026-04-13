@@ -26,11 +26,6 @@
       content = ''
         ADMIN_TOKEN=${config.sops.placeholder."vaultwarden/admin-token"}
         SMTP_FROM=${config.sops.placeholder."vaultwarden/smtp-from-email"}
-        SMTP_HOST=${config.sops.placeholder."vaultwarden/smtp_host"}
-        SMTP_PORT=${config.sops.placeholder."vaultwarden/smtp_port"}
-        SMTP_USERNAME=${config.sops.placeholder."vaultwarden/smtp_username"}
-        SMTP_PASSWORD=${config.sops.placeholder."vaultwarden/smtp_password"}
-        
       '';
     };
   };
@@ -43,6 +38,8 @@
       ROCKET_ADDRESS = "127.0.0.1";
       ROCKET_PORT = 8222;
       ROCKET_LOG = "critical";
+      SMTP_HOST = "127.0.0.1";
+      SMTP_PORT = 25;
       SMTP_SSL = false;
       SMTP_FROM_NAME = "Bitwarden server";
     };
