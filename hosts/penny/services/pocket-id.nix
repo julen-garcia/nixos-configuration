@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   version = "v2";
   data-directory = "/var/lib/pocketid";
