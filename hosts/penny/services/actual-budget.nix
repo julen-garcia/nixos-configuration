@@ -70,7 +70,6 @@ in
   systemd.services.actual-budget-backup = {
     description = "Backup actual-budget with service stop/start";
 
-    # Only run when triggered (or via timer)
     serviceConfig = {
       Type = "oneshot";
     };
@@ -97,7 +96,6 @@ in
     '';
   };
 
-  # Optional: run periodically
   systemd.timers.actual-budget-backup = {
     description = "Periodic actual-budget backup";
 
