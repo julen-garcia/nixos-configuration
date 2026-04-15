@@ -19,6 +19,7 @@
     ./services/ntfy.nix
     ./services/postfix.nix
     ./services/pocket-id.nix
+    ./services/actual-budget.nix
   ];
 
   # Import the needed secrets

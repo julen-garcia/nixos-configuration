@@ -1,0 +1,111 @@
+{ config, pkgs, ... }:
+let 
+  version = "26.4.0";
+  port = 5006;
+  dataPath = "/var/lib/actual-budget";
+  user = "actual-budget";
+  containerService = "podman-actual-budget";
+  backupPath = "/zstorage/internal-backups/actual-budget/";
+in 
+{
+
+  users.groups.${user} = {};
+  users.users.${user} = {
+    group = "${user}";
+    isSystemUser = true;
+  };
+
+  systemd.tmpfiles.rules = [
+    "d ${dataPath} 0775 ${user} ${user} -"
+  ];
+
+  # Import the needed secrets
+  sops = {
+    secrets = {
+      "actual-budget/pocketid-client-id" = {
+        sopsFile = ../secrets.yaml;
+      };
+      "actual-budget/pocketid-client-secret" = {
+        sopsFile = ../secrets.yaml;
+      };
+    };
+    templates."actual-budget-secrets.env" = {
+      content = ''
+        ACTUAL_OPENID_CLIENT_ID=${config.sops.placeholder."actual-budget/pocketid-client-id"}
+        ACTUAL_OPENID_CLIENT_SECRET=${config.sops.placeholder."actual-budget/pocketid-client-secret"}
+      '';
+    };
+  };
+
+  virtualisation.oci-containers.containers.actual-budget = {
+    image = "docker.io/actualbudget/actual-server:${version}";
+
+    ports = [
+      "${toString port}:${toString port}"
+    ];
+
+    volumes = [
+      "${dataPath}:/data"
+    ];
+
+    environment = {
+      PUID = toString config.users.users.${user}.uid;
+      PGID = toString config.users.groups.${user}.gid;
+      ACTUAL_PORT = toString port;
+      ACTUAL_LOGIN_METHOD = "openid";
+      ACTUAL_ALLOWED_LOGIN_METHODS = "openid";
+      ACTUAL_OPENID_DISCOVERY_URL = "https://pocketid.junaga.com";
+      ACTUAL_OPENID_SERVER_HOSTNAME = "https://actual.junaga.com";
+    };
+
+    environmentFiles = [
+      config.sops.templates."actual-budget-secrets.env".path
+    ];
+  };
+
+
+  reverseProxy.hosts.actual.httpPort = port;
+
+
+  systemd.services.actual-budget-backup = {
+    description = "Backup actual-budget with service stop/start";
+
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    script = ''
+      set -euo pipefail
+
+      cleanup() {
+        echo "Restarting service..."
+        systemctl start ${containerService}.service
+      }
+
+      trap cleanup EXIT
+
+      echo "Stopping service..."
+      systemctl stop ${containerService}.service
+      sleep 10s
+
+      echo "Running backup..."
+      mkdir -p ${backupPath}
+      ${pkgs.rsync}/bin/rsync -a --delete ${dataPath}/ ${backupPath}
+
+      echo "Backup done."
+    '';
+  };
+
+  systemd.timers.actual-budget-backup = {
+    description = "Periodic actual-budget backup";
+
+    wantedBy = [ "timers.target" ];
+
+    timerConfig = {
+      OnCalendar = "*-*-* 02:00:00";
+      Unit = "actual-budget-backup.service";
+    };
+  };
+
+}
+
