@@ -30,6 +30,7 @@ in {
 
   systemd.tmpfiles.rules = [
     "d ${data-directory} 0750 pocket-id pocket-id"
+    "d ${backupPath} 0750 pocket-id pocket-id"
   ];
 
   virtualisation.oci-containers.containers.pocket-id = {
@@ -101,4 +102,5 @@ in {
     };
   };
 }
+
 
