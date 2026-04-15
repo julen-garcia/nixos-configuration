@@ -1,6 +1,10 @@
 { config, ... }:
 let
+  version = "v2";
   data-directory = "/var/lib/pocketid";
+  port = 1411;
+  containerService = "podman-pocket-id";
+  backupPath = "/zstorage/internal-backups/pocket-id/";
 in {
   # Import the needed secrets
   sops = {
@@ -29,10 +33,10 @@ in {
   ];
 
   virtualisation.oci-containers.containers.pocket-id = {
-    image = "ghcr.io/pocket-id/pocket-id:v2";
+    image = "ghcr.io/pocket-id/pocket-id:${version}";
 
     ports = [
-      "1411:1411"
+      "${toString port}:${toString port}"
     ];
 
     volumes = [
@@ -55,6 +59,46 @@ in {
     };
   };
 
-  reverseProxy.hosts.pocketid.httpPort = 1411;
+  reverseProxy.hosts.pocketid.httpPort = port;
+
+  systemd.services.pocket-id-backup = {
+    description = "Backup pocket-id with service stop/start";
+
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    script = ''
+      set -euo pipefail
+
+      cleanup() {
+        echo "Restarting service..."
+        systemctl start ${containerService}.service
+      }
+
+      trap cleanup EXIT
+
+      echo "Stopping service..."
+      systemctl stop ${containerService}.service
+      sleep 10s
+
+      echo "Running backup..."
+      mkdir -p ${backupPath}
+      ${pkgs.rsync}/bin/rsync -a --delete ${data-directory}/ ${backupPath}
+
+      echo "Backup done."
+    '';
+  };
+
+  systemd.timers.pocket-id-backup = {
+    description = "Periodic pocket-id backup";
+
+    wantedBy = [ "timers.target" ];
+
+    timerConfig = {
+      OnCalendar = "*-*-* 02:00:00";
+      Unit = "pocket-id-backup.service";
+    };
+  };
 }
 
