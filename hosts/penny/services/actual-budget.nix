@@ -1,11 +1,11 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let 
   version = "26.4.0";
   port = 5006;
   dataPath = "/var/lib/actual-budget";
   user = "actual-budget";
   containerService = "podman-actual-budget";
-  backupPath = "/zstorage/internal-backups/actual-budget";
+  backupPath = "/zstorage/internal-backups/actual-budget/";
 in 
 {
 
@@ -66,6 +66,48 @@ in
 
   reverseProxy.hosts.actual.httpPort = port;
 
-}
 
+  systemd.services.actual-budget-backup = {
+    description = "Backup actual-budget with service stop/start";
+
+    # Only run when triggered (or via timer)
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    script = ''
+      set -euo pipefail
+
+      cleanup() {
+        echo "Restarting service..."
+        systemctl start ${containerService}.service
+      }
+
+      trap cleanup EXIT
+
+      echo "Stopping service..."
+      systemctl stop ${containerService}.service
+      sleep 10s
+
+      echo "Running backup..."
+      mkdir -p ${backupPath}
+      ${pkgs.rsync}/bin/rsync -a --delete ${dataPath}/ ${backupPath}
+
+      echo "Backup done."
+    '';
+  };
+
+  # Optional: run periodically
+  systemd.timers.actual-budget-backup = {
+    description = "Periodic actual-budget backup";
+
+    wantedBy = [ "timers.target" ];
+
+    timerConfig = {
+      OnCalendar = "*-*-* 02:00:00";
+      Unit = "actual-budget-backup.service";
+    };
+  };
+
+}
 
