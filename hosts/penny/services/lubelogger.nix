@@ -41,4 +41,44 @@ in {
 
   reverseProxy.hosts.lubelogger-penny.httpPort = port;
 
+  systemd.services.lubelogger-backup = {
+    description = "Backup lubelogger with service stop/start";
+
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    script = ''
+      set -euo pipefail
+
+      cleanup() {
+        echo "Restarting service..."
+        systemctl start ${containerService}.service
+      }
+
+      trap cleanup EXIT
+
+      echo "Stopping service..."
+      systemctl stop ${containerService}.service
+      sleep 10s
+
+      echo "Running backup..."
+      mkdir -p ${backupPath}
+      ${pkgs.rsync}/bin/rsync -a --delete ${dataPath}/ ${backupPath}
+
+      echo "Backup done."
+    '';
+  };
+
+  systemd.timers.lubelogger-backup = {
+    description = "Periodic lubelogger backup";
+
+    wantedBy = [ "timers.target" ];
+
+    timerConfig = {
+      OnCalendar = "*-*-* 02:00:00";
+      Unit = "lubelogger-backup.service";
+    };
+  };
+
 }
