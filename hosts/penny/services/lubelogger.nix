@@ -15,7 +15,8 @@ in {
   };
 
   systemd.tmpfiles.rules = [
-    "d ${dataPath} 0750 ${user} ${user}"
+    "d ${dataPath}/data 0750 ${user} ${user}"
+    "d ${dataPath}/keys 0750 ${user} ${user}"
     "d ${backupPath} 0750 ${user} ${user}"
   ];
 
