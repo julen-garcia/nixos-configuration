@@ -26,7 +26,8 @@ in {
     ];
 
     volumes = [
-      "${dataPath}:/data"
+      "${dataPath}/data:/App/data"
+      "${dataPath}/keys:/root/.aspnet/DataProtection-Keys"
     ];
 
     environment = {
