@@ -20,6 +20,7 @@
     ./services/postfix.nix
     ./services/pocket-id.nix
     ./services/actual-budget.nix
+    ./services/lubelogger.nix
   ];
 
   # Import the needed secrets

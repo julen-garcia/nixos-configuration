@@ -97,7 +97,7 @@ in {
     wantedBy = [ "timers.target" ];
 
     timerConfig = {
-      OnCalendar = "*-*-* 02:00:00";
+      OnCalendar = "*-*-* 02:05:00";
       Unit = "pocket-id-backup.service";
     };
   };
