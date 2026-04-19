@@ -36,8 +36,7 @@ in {
       LANG = "es_ES";
     };
   };
+
+  reverseProxy.hosts.lubelogger-penny.httpPort = port;
+
 }
-
-
-
-
