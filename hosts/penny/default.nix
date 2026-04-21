@@ -21,6 +21,7 @@
     ./services/pocket-id.nix
     ./services/actual-budget.nix
     ./services/lubelogger.nix
+    ./services/immich.nix
   ];
 
   # Import the needed secrets
