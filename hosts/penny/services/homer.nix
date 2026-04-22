@@ -56,7 +56,7 @@ let
             icon = "fa-solid fa-shield-halved";
             subtitle = "";
             tag = "service";
-            url = "https://vaultwarden.junaga.com/";
+            url = "https://bitwarden.junaga.com/";
           }
           {
             name = "LubeLogger";
