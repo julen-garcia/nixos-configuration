@@ -22,6 +22,7 @@
     ./services/actual-budget.nix
     ./services/lubelogger.nix
     ./services/immich.nix
+    ./services/homer.nix
   ];
 
   # Import the needed secrets
