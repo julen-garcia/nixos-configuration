@@ -23,6 +23,7 @@
     ./services/lubelogger.nix
     ./services/immich.nix
     ./services/homer.nix
+    ./services/donetick.nix
   ];
 
   # Import the needed secrets
