@@ -7,6 +7,7 @@
     ./nix-ld.nix
     ../users
     ./sops.nix
+    ../../../modules/hardware/smart.nix
   ];
 
   # Enable experimental features
