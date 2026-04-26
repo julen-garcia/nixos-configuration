@@ -22,6 +22,12 @@
         forwardAgent = true;
         extraOptions.StreamLocalBindUnlink = "yes";
       };
+      "penny" = {
+        hostname = "penny.junaga.com";
+        user = "julen";
+        forwardAgent = true;
+        extraOptions.StreamLocalBindUnlink = "yes";
+      };
     };
   };
 }
