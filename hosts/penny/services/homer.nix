@@ -121,11 +121,11 @@ let
         icon = "fa-solid fa-eye";
         items = [
           {
-            name = "Uptime Kuma";
-            logo = "https://raw.githubusercontent.com/louislam/uptime-kuma/refs/heads/master/public/icon.svg";
-            url = "https://uptime-kuma.junaga.com";
-            slug = "raspi";
-            type = "UptimeKuma";
+            name = "Gatus";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/gatus.svg";
+            url = "https://gatus.junaga.com";
+            slug = "monitoring";
+            type = "Gatus";
           }
           {
             name = "Healthcheck.io";
