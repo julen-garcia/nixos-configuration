@@ -24,6 +24,7 @@
     ./services/immich.nix
     ./services/homer.nix
     ./services/donetick.nix
+    ./services/backups.nix
   ];
 
   # Import the needed secrets
