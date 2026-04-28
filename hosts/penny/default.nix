@@ -25,6 +25,7 @@
     ./services/homer.nix
     ./services/donetick.nix
     ./services/backups.nix
+    ./services/gatus.nix
   ];
 
   # Import the needed secrets
