@@ -56,14 +56,14 @@ let
   '';
 in {
 
-  # Mount daily backup at boot if present
-  fileSystems."/${dailyTargetPool}" = {
-    device = dailyTargetPool;
-    fsType = "zfs";
-    options = [
-      "nofail" # Do not block boot if missing
-    ];
-  };
+  # # Mount daily backup at boot if present
+  # fileSystems."/${dailyTargetPool}" = {
+  #   device = dailyTargetPool;
+  #   fsType = "zfs";
+  #   options = [
+  #     "nofail" # Do not block boot if missing
+  #   ];
+  # };
 
   services.sanoid = {
     enable = true;
