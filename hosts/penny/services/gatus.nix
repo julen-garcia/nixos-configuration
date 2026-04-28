@@ -1,28 +1,28 @@
 { config, lib, ... }:
 {
-  options.external-health-check.job = lib.mkOption {
-    type = lib.types.attrsOf (
-      lib.types.submodule {
-        options = {
-          name = lib.mkOption {
-            type = lib.types.str;
-            default = "";
-            description = "Name of the health-check job";
-          };
-          group = lib.mkOption {
-            type = lib.types.str;
-            default = "";
-            description = "Used to group multiple health-check jobs together";
-          };
-          token = lib.mkOption {
-            type = lib.types.str;
-            default = "";
-            description = "Bearer token required to push status to.";
-          };
-        };
-      }
-    );
-  };
+  # options.external-health-check.job = lib.mkOption {
+  #   type = lib.types.attrsOf (
+  #     lib.types.submodule {
+  #       options = {
+  #         name = lib.mkOption {
+  #           type = lib.types.str;
+  #           default = "";
+  #           description = "Name of the health-check job";
+  #         };
+  #         group = lib.mkOption {
+  #           type = lib.types.str;
+  #           default = "";
+  #           description = "Used to group multiple health-check jobs together";
+  #         };
+  #         token = lib.mkOption {
+  #           type = lib.types.str;
+  #           default = "";
+  #           description = "Bearer token required to push status to.";
+  #         };
+  #       };
+  #     }
+  #   );
+  # };
 
   config = {
     # Import the needed secrets
@@ -127,19 +127,19 @@
           }
         ];
 
-        external-endpoints =
-          builtins.map
-            (job: {
-              name = job.name;
-              group = job.group;
-              token = job.token;
-              alerts = [
-                { 
-                  type = "email"; 
-                }
-              ];
-            })
-            (builtins.attrValues config.external-health-check.job);
+        # external-endpoints =
+        #   builtins.map
+        #     (job: {
+        #       name = job.name;
+        #       group = job.group;
+        #       token = job.token;
+        #       alerts = [
+        #         { 
+        #           type = "email"; 
+        #         }
+        #       ];
+        #     })
+        #     (builtins.attrValues config.external-health-check.job);
 
         alerting.email = {
           from = "\${FROM_EMAIL}";
