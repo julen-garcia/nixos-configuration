@@ -27,6 +27,7 @@
     ./services/backups.nix
     ./services/gatus.nix
     ./services/homeassistant.nix
+    ./services/isponsorblocktv.nix
   ];
 
   # Import the needed secrets
