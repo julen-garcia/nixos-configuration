@@ -83,7 +83,7 @@ let
             icon = "fa-solid fa-house-laptop";
             subtitle = "";
             tag = "service";
-            url = "https://junaga.com:8123";
+            url = "https://casa.junaga.com";
           }
           {
             name = "DoneTick";
