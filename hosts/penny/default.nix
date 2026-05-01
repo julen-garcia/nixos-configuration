@@ -26,6 +26,7 @@
     ./services/donetick.nix
     ./services/backups.nix
     ./services/gatus.nix
+    ./services/homeassistant.nix
   ];
 
   # Import the needed secrets
