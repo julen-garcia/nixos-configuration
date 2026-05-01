@@ -2,7 +2,7 @@
 let
   vars = {
     homeassistant = {
-      version = "2026.2";
+      version = "2026.4";
       port = 8123;
     };
     nut-upsd = {
@@ -44,6 +44,7 @@ in
         PACKAGES = "iputils";
       };
       image = "ghcr.io/home-assistant/home-assistant:${vars.homeassistant.version}";
+      devices = ["/dev/serial/by-id/usb-ITead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_a68e70185c5aee11a3358cdc8ffcc75d-if00-port0:/dev/ttyUSB0"];
       extraOptions = [
         "--network=host"
       ];
@@ -53,11 +54,13 @@ in
       environment = {
         USER = "nut";
         SERIAL = "0B2143N07825";
+	PORT = "auto";
       };
       environmentFiles = [
         config.sops.templates."nut-upsd-secrets.env".path
       ];
       image = "instantlinux/nut-upsd:${vars.nut-upsd.version}";
+      devices = ["/dev/bus/usb/003/002:/dev/bus/usb/003/002"];
       ports = [ 
         "${toString vars.nut-upsd.port}:${toString vars.nut-upsd.port}"
       ];
