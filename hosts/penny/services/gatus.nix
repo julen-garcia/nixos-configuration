@@ -125,6 +125,21 @@
               }
             ];
           }
+          {
+            name = "Dashboard";
+            group = "services";
+            url = "https://homer.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
         ];
 
         # external-endpoints =
