@@ -53,21 +53,21 @@ let
         items = [
           {
             name = "Vaultwarden";
-            icon = "fa-solid fa-shield-halved";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/bitwarden.svg";
             subtitle = "";
             tag = "service";
             url = "https://bitwarden.junaga.com/";
           }
           {
             name = "LubeLogger";
-            icon = "fa-solid fa-gear";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/lubelogger.png";
             subtitle = "";
             tag = "service";
             url = "https://lubelogger-penny.junaga.com";
           }
           {
             name = "Actual budget";
-            icon = "fa-solid fa-money-bill-transfer";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/actual-budget.svg";
             tag = "service";
             url = "https://actual.junaga.com/";
           }
@@ -80,14 +80,14 @@ let
           }
           {
             name = "Home Assistant";
-            icon = "fa-solid fa-house-laptop";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/home-assistant.svg";
             subtitle = "";
             tag = "service";
             url = "https://casa.junaga.com";
           }
           {
             name = "DoneTick";
-            icon = "fa-regular fa-square-check";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/donetick.svg";
             subtitle = "";
             tag = "service";
             url = "https://donetick.junaga.com/";
@@ -101,7 +101,7 @@ let
           }
           {
             name = "RSS";
-            icon = "fa-solid fa-rss";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/feedly.svg";
             tag = "web";
             url = "https://feedly.com/";
           }
@@ -113,12 +113,12 @@ let
         items = [
           {
             name = "Pi-hole";
-            icon = "fa-brands fa-raspberry-pi";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/pi-hole.svg";
             url = "https://junaga.com:444/admin";
           }
           {
             name = "UCG Sope";
-            icon = "fa-solid fa-ethernet";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/ubiquiti-unifi.svg";
             url = "https://router.junaga.com";
           }
         ];
