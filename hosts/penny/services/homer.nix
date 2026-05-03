@@ -93,6 +93,13 @@ let
             url = "https://donetick.junaga.com/";
           }
           {
+            name = "Immich";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/immich.svg";
+            subtitle = "";
+            tag = "service";
+            url = "https://fotos.junaga.com/";
+          }
+          {
             name = "RSS";
             icon = "fa-solid fa-rss";
             tag = "web";

@@ -140,6 +140,21 @@
               }
             ];
           }
+          {
+            name = "Immich";
+            group = "services";
+            url = "https://fotos.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
         ];
 
         # external-endpoints =
