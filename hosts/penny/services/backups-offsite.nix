@@ -56,7 +56,7 @@
         lib.mapAttrsToList (name: job: {
           name = "${name}-offsite-raspi5";
           value = {
-            repository = "sftp://penny@raspi5.junaga.com:2222//restic-repo/${name} -o sftp.args="-i /home/julen/.ssh/penny_raspi5_restic"";
+            repository = "sftp://penny@raspi5.junaga.com:2222//restic-repo/${name} -o sftp.args='-i /home/julen/.ssh/penny_raspi5_restic'";
             passwordFile = config.sops.secrets.backup-password.path;
             initialize = true;
 
@@ -100,7 +100,7 @@
         in
         lib.nameValuePair serviceName {
           script = ''
-            /run/current-system/sw/bin/curl -X POST -H "Authorization: Bearer secret" https://gatus.brusapa.com/api/v1/endpoints/backups_${name}/external?success=true
+            /run/current-system/sw/bin/curl -X POST -H "Authorization: Bearer secret" https://gatus.junaga.com/api/v1/endpoints/backups_${name}/external?success=true
           '';
         }
       ) config.services.restic.backups)
@@ -112,7 +112,7 @@
         in
         lib.nameValuePair serviceName {
           script = ''
-            /run/current-system/sw/bin/curl -X POST -H "Authorization: Bearer secret" https://gatus.brusapa.com/api/v1/endpoints/backups_${name}/external?success=false
+            /run/current-system/sw/bin/curl -X POST -H "Authorization: Bearer secret" https://gatus.junaga.com/api/v1/endpoints/backups_${name}/external?success=false
           '';
         }
       ) config.services.restic.backups)

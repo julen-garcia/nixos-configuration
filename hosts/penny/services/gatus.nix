@@ -157,19 +157,19 @@
           }
         ];
 
-        # external-endpoints =
-        #   builtins.map
-        #     (job: {
-        #       name = job.name;
-        #       group = job.group;
-        #       token = job.token;
-        #       alerts = [
-        #         { 
-        #           type = "email"; 
-        #         }
-        #       ];
-        #     })
-        #     (builtins.attrValues config.external-health-check.job);
+        external-endpoints =
+          builtins.map
+            (job: {
+              name = job.name;
+              group = job.group;
+              token = job.token;
+              alerts = [
+                { 
+                  type = "email"; 
+                }
+              ];
+            })
+            (builtins.attrValues config.external-health-check.job);
 
         alerting.email = {
           from = "\${FROM_EMAIL}";
