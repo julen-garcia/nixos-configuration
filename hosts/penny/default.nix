@@ -28,6 +28,7 @@
     ./services/gatus.nix
     ./services/homeassistant.nix
     ./services/isponsorblocktv.nix
+    ./services/backups-offsite.nix
   ];
 
   # Import the needed secrets
@@ -49,6 +50,11 @@
   environment.systemPackages = with pkgs; [
     lm_sensors
     restic
+  ];
+
+  # Backup userdata
+  backup-offsite-raspi5.job.userdata.paths = [
+    "/zstorage/users"
   ];
 
   # Bootloader.
