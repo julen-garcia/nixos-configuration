@@ -48,6 +48,7 @@
 
   environment.systemPackages = with pkgs; [
     lm_sensors
+    restic
   ];
 
   # Bootloader.
