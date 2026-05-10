@@ -97,3 +97,7 @@ Delete create pool and file:
 zpool export test
 rm sparse_file
 ```
+
+## Restic
+
+[Create user with only sftp access](https://www.geraldonit.com/enabling-sftp-only-access-on-linux/)
