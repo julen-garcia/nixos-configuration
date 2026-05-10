@@ -73,9 +73,9 @@ in
     casa.httpPort = 8123;
   };
 
-  # backup-offsite-landabarri.job.home-assistant = {
-  #   paths = [
-  #     "/zstorage/backups/home-assistant"
-  #   ];
-  # };
+  backup-offsite-raspi5.job.home-assistant = {
+    paths = [
+      "/zstorage/internal-backups/home-assistant"
+    ];
+  };
 }
