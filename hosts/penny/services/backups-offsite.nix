@@ -56,7 +56,7 @@
         lib.mapAttrsToList (name: job: {
           name = "${name}-offsite-raspi5";
           value = {
-            repository = "sftp://penny@raspi5.junaga.com:2222//restic-repo/${name} -o sftp.args='-i /home/julen/.ssh/penny_raspi5_restic'";
+            repository = "sftp://penny@raspi5.junaga.com:2222//restic-repo/${name}";
             passwordFile = config.sops.secrets.backup-password.path;
             initialize = true;
 
