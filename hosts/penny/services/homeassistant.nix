@@ -60,7 +60,7 @@ in
         config.sops.templates."nut-upsd-secrets.env".path
       ];
       image = "instantlinux/nut-upsd:${vars.nut-upsd.version}";
-      devices = ["/dev/bus/usb/003/002:/dev/bus/usb/003/002"];
+      devices = ["/dev/bus/usb/003/003:/dev/bus/usb/003/003"];
       ports = [ 
         "${toString vars.nut-upsd.port}:${toString vars.nut-upsd.port}"
       ];
