@@ -29,6 +29,7 @@
     ./services/homeassistant.nix
     ./services/isponsorblocktv.nix
     ./services/backups-offsite.nix
+    ./services/pihole.nix
   ];
 
   # Import the needed secrets
