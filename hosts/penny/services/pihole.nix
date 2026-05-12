@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, config, ... }: 
 let 
   port = 444;
 in
@@ -105,6 +105,7 @@ in
           "casa.junaga.com,penny.junaga.com"
           "sheldon.junaga.com,sheldon.trusted"
           "lubelogger-penny.junaga.com,penny.junaga.com"
+          "pihole.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
