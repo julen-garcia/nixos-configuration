@@ -38,9 +38,9 @@
 
   reverseProxy.hosts.bitwarden.httpPort = config.services.vaultwarden.config.ROCKET_PORT;
 
-  # backup-offsite-raspi5.job.vaultwarden = {
-  #   paths = [
-  #     "/zstorage/internal-backups/vaultwarden"
-  #   ];
-  # };
+  backup-offsite-raspi5.job.vaultwarden = {
+    paths = [
+      "/zstorage/internal-backups/vaultwarden"
+    ];
+  };
 }
