@@ -81,7 +81,7 @@ in {
     };
   };
 
-  backup-offsite-raspi5.job.actual-budget = {
+  backup-offsite-raspi5.job.lubelogger = {
     paths = [
       backupPath
     ];
