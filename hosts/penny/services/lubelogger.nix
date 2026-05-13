@@ -81,4 +81,10 @@ in {
     };
   };
 
+  backup-offsite-raspi5.job.actual-budget = {
+    paths = [
+      backupPath
+    ];
+  };
+
 }
