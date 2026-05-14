@@ -20,7 +20,7 @@ let
   dailyTargetPool = "daily-backup";
 
   weeklyTargetPool = "weekly-backup";
-  weeklyUsbSerial = "WD-WXE2E11DE846"; #TODO: update
+  weeklyUsbSerial = "575834324136354C4A584450";
 
   # Script that performs the import → syncoid → export sequence.
   # IMPORTANT: %i is expanded by systemd in ExecStart. The script
@@ -85,20 +85,20 @@ in {
     }) datasets);
   };
 
-  # services.syncoid = {
-  #   enable = true;
-  #   interval = "hourly";
-  #   commonArgs = syncoidCommonArgs;
-  #   localTargetAllow = [
-  #     "change-key"
-  #     "compression"
-  #     "create"
-  #     "destroy"
-  #     "mount"
-  #     "mountpoint"
-  #     "receive"
-  #     "rollback"
-  #   ];
+  services.syncoid = {
+    enable = true;
+    interval = []; # Set to an empty list to avoid starting syncoid automatically.
+    commonArgs = syncoidCommonArgs;
+    localTargetAllow = [
+      "change-key"
+      "compression"
+      "create"
+      "destroy"
+      "mount"
+      "mountpoint"
+      "receive"
+      "rollback"
+    ];
 
   #   commands = lib.listToAttrs (map (dataset: {
   #     name = "backup-${dataset}-to-daily";
@@ -107,26 +107,26 @@ in {
   #       target = "${dailyTargetPool}/${dataset}";
   #     };
   #   }) datasets);
-  # };
+  };
 
-  # # ---- On-plug USB replication unit (triggered by udev) ----
-  # systemd.services."usb-zfs-sync@" = {
-  #   description = "Replicate to USB ZFS pool %I on plug";
-  #   after = [ "zfs-import.target" "local-fs.target" ];
-  #   wantedBy = [ ]; # udev will start it; don’t start automatically
-  #   serviceConfig = {
-  #     Type = "oneshot";
-  #     TimeoutStartSec = 0;
-  #     # CRITICAL: Expand %i here, not inside the script.
-  #     ExecStart = "${syncScript} %i";
-  #   };
-  # };
+  # ---- On-plug USB replication unit (triggered by udev) ----
+  systemd.services."usb-zfs-sync@" = {
+    description = "Replicate to USB ZFS pool %I on plug";
+    after = [ "zfs-import.target" "local-fs.target" ];
+    wantedBy = [ ]; # udev will start it; don’t start automatically
+    serviceConfig = {
+      Type = "oneshot";
+      TimeoutStartSec = 0;
+      # CRITICAL: Expand %i here, not inside the script.
+      ExecStart = "${syncScript} %i";
+    };
+  };
 
-  # # ---- udev rule: start the job when the USB disk appears ----
-  # # Match the DISK (not partitions), and use ATTRS{serial} for robust USB enclosures.
-  # services.udev.extraRules = ''
-  #   ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", \
-  #     ENV{ID_BUS}=="usb", ATTRS{serial}=="${weeklyUsbSerial}", \
-  #     TAG+="systemd", ENV{SYSTEMD_WANTS}+="usb-zfs-sync@${weeklyTargetPool}.service"
-  # '';
+  # ---- udev rule: start the job when the USB disk appears ----
+  # Match the DISK (not partitions), and use ATTRS{serial} for robust USB enclosures.
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="block", ENV{DEVTYPE}=="disk", \
+      ATTRS{serial}=="${weeklyUsbSerial}", \
+      TAG+="systemd", ENV{SYSTEMD_WANTS}+="usb-zfs-sync@${weeklyTargetPool}.service"
+  '';
 }
