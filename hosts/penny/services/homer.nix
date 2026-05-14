@@ -114,7 +114,7 @@ let
           {
             name = "Pi-hole";
             logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/pi-hole.svg";
-            url = "https://junaga.com:444/admin";
+            url = "https://pihole.junaga.com/";
           }
           {
             name = "UCG Sope";
