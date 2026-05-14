@@ -133,9 +133,9 @@ in
           # Permit destructive actions via API
           allow_destructive = true;
 
-          pwhash = "$(cat ${config.sops.secrets."pihole/pwhash".path})";
+          pwhash = "REPLACE_ME_ACTIVATION_SCRIPT_PASSWORD_HASH";
 
-          app_pwhash = "$(cat ${config.sops.secrets."pihole/app_pwhash".path})";
+          app_pwhash = "REPLACE_ME_ACTIVATION_SCRIPT_API_HASH";
 
           # Allow API clients/apps to modify settings
           app_sudo = false;
@@ -143,6 +143,20 @@ in
         };
       };
     };
+  };
+
+  system.activationScripts.replace-passwords = {
+    # To be run after the secrets have been created
+    deps = [ "setupSecrets" ];
+
+    text = ''
+      PASSWORD_HASH=$(cat ${config.sops.secrets."pihole/pwhash".path})
+      API_HASH=$(cat ${config.sops.secrets."pihole/app_pwhash".path})
+      PI_HOLE_CONFIG_FILE="/etc/pihole/pihole.toml"
+
+      ${pkgs.gnused}/bin/sed -i "s|REPLACE_ME_ACTIVATION_SCRIPT_PASSWORD_HASH|$PASSWORD_HASH|g" "$PI_HOLE_CONFIG_FILE"
+      ${pkgs.gnused}/bin/sed -i "s|REPLACE_ME_ACTIVATION_SCRIPT_API_HASH|$API_HASH|g" "$PI_HOLE_CONFIG_FILE"
+    '';
   };
 
   services.pihole-web = {
