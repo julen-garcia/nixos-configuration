@@ -52,6 +52,8 @@ in
     ];
   };
 
+  users.users.immich.extraGroups = [ "video" "render" ];
+
   reverseProxy.hosts.fotos = {
     ip = "localhost";
     httpPort = config.services.immich.port;
