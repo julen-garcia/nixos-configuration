@@ -106,6 +106,7 @@ in
           "sheldon.junaga.com,sheldon.trusted"
           "lubelogger-penny.junaga.com,penny.junaga.com"
           "pihole.junaga.com,penny.junaga.com"
+          "documentos.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
