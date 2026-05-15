@@ -48,7 +48,7 @@ in
       };
     };
     accelerationDevices = [
-      "/dev/dri/renderD128"
+      "/dev/dri/card0"
     ];
   };
 
