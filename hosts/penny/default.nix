@@ -30,6 +30,7 @@
     ./services/isponsorblocktv.nix
     ./services/backups-offsite.nix
     ./services/pihole.nix
+    ./services/paperless.nix
   ];
 
   # Import the needed secrets
