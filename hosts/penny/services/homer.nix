@@ -100,6 +100,13 @@ let
             url = "https://fotos.junaga.com/";
           }
           {
+            name = "Paperless";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/paperless.svg";
+            subtitle = "";
+            tag = "service";
+            url = "https://documentos.junaga.com/";
+          }
+          {
             name = "RSS";
             logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/feedly.svg";
             tag = "web";
