@@ -11,6 +11,7 @@
     ../../modules/server.nix
     ../../modules/tailscale.nix
     ../../modules/quiet-boot.nix
+    ../../modules/hardware/intel-gpu-hw-acceleration.nix
 
     ./services/samba.nix
     ./services/caddy.nix

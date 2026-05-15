@@ -47,9 +47,9 @@ in
         issuerUrl = "https://pocketid.junaga.com";
       };
     };
-    # accelerationDevices = [
-    #   "/dev/dri/renderD128"
-    # ];
+    accelerationDevices = [
+      "/dev/dri/renderD128"
+    ];
   };
 
   reverseProxy.hosts.fotos = {
