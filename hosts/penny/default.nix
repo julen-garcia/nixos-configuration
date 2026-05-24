@@ -32,6 +32,7 @@
     ./services/backups-offsite.nix
     ./services/pihole.nix
     ./services/paperless.nix
+    ./services/wallaos.nix
   ];
 
   # Import the needed secrets

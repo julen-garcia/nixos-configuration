@@ -107,6 +107,7 @@ in
           "lubelogger-penny.junaga.com,penny.junaga.com"
           "pihole.junaga.com,penny.junaga.com"
           "documentos.junaga.com,penny.junaga.com"
+          "wallaos.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
