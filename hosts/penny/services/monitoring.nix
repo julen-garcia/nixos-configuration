@@ -52,7 +52,6 @@
         enable = true;
         enabledCollectors = [ "systemd" ];
       };
-      apcupsd.enable = true;
       postgres.enable = true;
     };
     scrapeConfigs = [
