@@ -108,6 +108,7 @@ in
           "pihole.junaga.com,penny.junaga.com"
           "documentos.junaga.com,penny.junaga.com"
           "wallaos.junaga.com,penny.junaga.com"
+          "grafana.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
