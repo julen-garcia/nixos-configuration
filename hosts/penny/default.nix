@@ -33,6 +33,7 @@
     ./services/pihole.nix
     ./services/paperless.nix
     ./services/wallaos.nix
+    ./services/monitoring.nix
   ];
 
   # Import the needed secrets
