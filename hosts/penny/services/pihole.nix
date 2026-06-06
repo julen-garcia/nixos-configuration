@@ -109,6 +109,10 @@ in
           "documentos.junaga.com,penny.junaga.com"
           "wallaos.junaga.com,penny.junaga.com"
           "grafana.junaga.com,penny.junaga.com"
+          "radarr-new.junaga.com,penny.junaga.com"
+          "sonarr-new.junaga.com,penny.junaga.com"
+          "qbittorrent-new.junaga.com,penny.junaga.com"
+          "jacket-new.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
