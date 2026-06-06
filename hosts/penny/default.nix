@@ -34,6 +34,7 @@
     ./services/paperless.nix
     ./services/wallaos.nix
     ./services/monitoring.nix
+    ./services/servarr
   ];
 
   # Import the needed secrets
