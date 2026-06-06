@@ -5,15 +5,6 @@
     inputs.nixarr.nixosModules.default
   ];
 
-  # Import the needed secrets
-  sops = {
-    secrets = {
-      torrent-wireguard-config = {
-        sopsFile = ../secrets.yaml;
-      };
-    };
-  };
-
   # Fix the GID of the media group
   users.groups.media.gid = 169;
 
