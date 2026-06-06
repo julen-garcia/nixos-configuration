@@ -28,6 +28,8 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    nixarr.url = "github:rasmus-kirk/nixarr";
+
   };
 
   nixConfig = {
