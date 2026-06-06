@@ -89,10 +89,10 @@ in
         cnameRecords = [
           "junaga.com,raspi5.trusted"
           "raspi5.junaga.com,junaga.com"
-          "radarr.junaga.com,junaga.com"
-          "sonarr.junaga.com,junaga.com"
-          "qbittorrent.junaga.com,junaga.com"
-          "jackett.junaga.com,junaga.com"
+          "radarr.junaga.com,penny.junaga.com"
+          "sonarr.junaga.com,penny.junaga.com"
+          "qbittorrent.junaga.com,penny.junaga.com"
+          "jackett.junaga.com,penny.junaga.com"
           "bitwarden.junaga.com,penny.junaga.com"
           "router.junaga.com,penny.junaga.com"
           "ntfy.junaga.com,penny.junaga.com"
@@ -109,10 +109,6 @@ in
           "documentos.junaga.com,penny.junaga.com"
           "wallaos.junaga.com,penny.junaga.com"
           "grafana.junaga.com,penny.junaga.com"
-          "radarr-new.junaga.com,penny.junaga.com"
-          "sonarr-new.junaga.com,penny.junaga.com"
-          "qbittorrent-new.junaga.com,penny.junaga.com"
-          "jacket-new.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
