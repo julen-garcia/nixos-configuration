@@ -2,6 +2,8 @@
 let
   data-directory = "/var/lib/yamtrack";
   port = 5003;
+  containerService = "podman-yamtrack";
+  backupPath = "/zstorage/internal-backups/yamtrack/";
 in {
   # Import the needed secrets
   sops = {
@@ -93,5 +95,51 @@ in {
   systemd.services."podman-yamtrack".after = [
     "podman-network-yamtrack.service"
   ];
+
+  systemd.services.yamtrack-backup = {
+    description = "Backup yamtrack with service stop/start";
+
+    serviceConfig = {
+      Type = "oneshot";
+    };
+
+    script = ''
+      set -euo pipefail
+
+      cleanup() {
+        echo "Restarting service..."
+        systemctl start ${containerService}.service
+      }
+
+      trap cleanup EXIT
+
+      echo "Stopping service..."
+      systemctl stop ${containerService}.service
+      sleep 10s
+
+      echo "Running backup..."
+      mkdir -p ${backupPath}
+      ${pkgs.rsync}/bin/rsync -a --delete ${data-directory}/ ${backupPath}
+
+      echo "Backup done."
+    '';
+  };
+
+  systemd.timers.yamtrack-backup = {
+    description = "Periodic yamtrack backup";
+
+    wantedBy = [ "timers.target" ];
+
+    timerConfig = {
+      OnCalendar = "*-*-* 02:30:00";
+      Unit = "yamtrack-backup.service";
+    };
+  };
+
+  backup-offsite-raspi5.job.yamtrack = {
+    paths = [
+      backupPath
+    ];
+  };
 
 }
