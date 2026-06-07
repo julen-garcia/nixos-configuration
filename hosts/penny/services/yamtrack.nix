@@ -47,7 +47,7 @@ in {
 
       environment = {
         TZ = "Europe/Madrid";
-        REDIS_URL = "redis://redis:6379";
+        REDIS_URL = "redis://10.89.0.2:6379"; #using the ip from the cmd `podman network inspect yamtrack` for redis as podman dns is disabled
         URLS = "https://yamtrack.junaga.com";
       };
 
