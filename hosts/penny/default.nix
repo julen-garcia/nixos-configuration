@@ -35,6 +35,7 @@
     ./services/wallaos.nix
     ./services/monitoring.nix
     ./services/servarr
+    ./services/yamtrack.nix
   ];
 
   # Import the needed secrets

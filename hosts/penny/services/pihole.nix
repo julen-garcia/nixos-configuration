@@ -109,6 +109,7 @@ in
           "documentos.junaga.com,penny.junaga.com"
           "wallaos.junaga.com,penny.junaga.com"
           "grafana.junaga.com,penny.junaga.com"
+          "yamtrack.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
