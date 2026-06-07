@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   data-directory = "/var/lib/yamtrack";
-  port = 5002;
+  port = 5003;
 in {
   # Import the needed secrets
   sops = {
