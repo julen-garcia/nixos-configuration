@@ -48,7 +48,7 @@ in {
       environment = {
         TZ = "Europe/Madrid";
         REDIS_URL = "redis://redis:6379";
-        URLS=https://yamtrack.junaga.com
+        URLS = "https://yamtrack.junaga.com";
       };
 
       volumes = [
