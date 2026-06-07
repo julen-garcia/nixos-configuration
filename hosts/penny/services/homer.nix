@@ -107,6 +107,13 @@ let
             url = "https://documentos.junaga.com/";
           }
           {
+            name = "Wallaos";
+            logo = "https://raw.githubusercontent.com/ellite/Wallos/de3066465bfbf06e3efceb63787538e4f989d01e/images/icon/android-chrome-192x192.png";
+            subtitle = "";
+            tag = "service";
+            url = "https://wallaos.junaga.com/";
+          }
+          {
             name = "RSS";
             logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/feedly.svg";
             tag = "web";
@@ -146,12 +153,23 @@ let
             logo = "https://raw.githubusercontent.com/healthchecks/healthchecks/refs/heads/master/stuff/favicon.svg";
             url = "https://healthchecks.io/accounts/login/";
           }
+          {
+            name = "Grafana";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/grafana.svg";
+            url = "https://grafana.junaga.com";
+            slug = "monitoring";
+          }
         ];
       }
       {
         name = "Media";
         icon = "fa-solid fa-play";
         items = [
+          {
+            name = "Yamtrack";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/yamtrack.svg";
+            url = "https://yamtrack.junaga.com";
+          }
           {
             name = "Radarr";
             logo = "https://raw.githubusercontent.com/Radarr/Radarr/refs/heads/develop/Logo/Radarr.svg";
