@@ -81,7 +81,7 @@ in {
 
     script = ''
       ${pkgs.podman}/bin/podman network exists yamtrack || \
-      ${pkgs.podman}/bin/podman network create yamtrack
+      ${pkgs.podman}/bin/podman network create --disable-dns yamtrack
     '';
   };
 
