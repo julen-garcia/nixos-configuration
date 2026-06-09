@@ -11,7 +11,7 @@
 
   home.packages = with pkgs; [
     jetbrains-mono
-    bitwarden-desktop
+    # bitwarden-desktop # Temporary disabled until electron 39 not used
     # veracrypt
     # moonlight-qt
     # ente-auth

@@ -70,6 +70,7 @@
   # TUI File manager
   programs.yazi = {
     enable = true;
+    shellWrapperName = "y";
   };
 
   # General purpose fuzzy finder (Yazi optional dependency)
@@ -81,12 +82,13 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    withRuby = false;
+    withPython3 = false;
   };
 
   home.packages = with pkgs; [
     yq
     curl
-    neofetch
     file # File type detection (Yazi optional dependency)
     ffmpeg # Video thumbnail generation (Yazi optional dependency)
     p7zip # Archive extraction (Yazi optional dependency)
