@@ -20,10 +20,12 @@ in
   # Disable systemd-resolved DNS stub
   services.resolved = {
     enable = true;
-    extraConfig = ''
-      DNSStubListener=no
-      MulticastDNS=off
-    '';
+    settings = {
+      Resolve = {
+        DNSStubListener = false;
+        MulticastDNS = false;
+      };
+    };
   };
 
   services.pihole-ftl = {
