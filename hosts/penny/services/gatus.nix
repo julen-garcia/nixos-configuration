@@ -155,6 +155,141 @@
               }
             ];
           }
+          {
+            name = "Paperless";
+            group = "services";
+            url = "https://documentos.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Wallaos";
+            group = "services";
+            url = "https://wallaos.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Yamtrack";
+            group = "services";
+            url = "https://yamtrack.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Radarr";
+            group = "services";
+            url = "https://radarr.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Sonarr";
+            group = "services";
+            url = "https://sonarr.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "qBittorrent";
+            group = "services";
+            url = "https://qbittorrent.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Jackett";
+            group = "services";
+            url = "https://jackett.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Pi-hole";
+            group = "services";
+            url = "https://pihole.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
+          {
+            name = "Grafana";
+            group = "services";
+            url = "https://grafana.junaga.com/";
+            interval = "30m";
+            conditions = [
+              "[STATUS] == 200"
+              "[BODY] != ''"
+            ];
+            alerts = [
+              {
+                type = "email";
+              }
+            ];
+          }
         ];
 
         external-endpoints =
