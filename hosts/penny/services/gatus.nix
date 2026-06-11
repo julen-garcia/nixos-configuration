@@ -248,7 +248,7 @@
           {
             name = "Jackett";
             group = "services";
-            url = "https://jackett.junaga.com/";
+            url = "https://jackett.junaga.com/UI/Login?cookiesChecked=1";
             interval = "30m";
             conditions = [
               "[STATUS] == 200"
