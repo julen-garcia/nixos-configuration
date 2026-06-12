@@ -41,6 +41,7 @@ in
     settings = {
       PAPERLESS_ADMIN_USER = "julen";
       PAPERLESS_OCR_LANGUAGE = "spa+eus+eng";
+      PAPERLESS_OCR_PAGES = "20";
       PAPERLESS_URL = "https://documentos.junaga.com";
       PAPERLESS_APPS = "allauth.socialaccount.providers.openid_connect";
     };
