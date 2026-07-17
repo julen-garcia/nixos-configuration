@@ -49,7 +49,7 @@ in {
 
       environment = {
         TZ = "Europe/Madrid";
-        REDIS_URL = "redis://10.89.0.8:6379"; #using the ip from the cmd `podman network inspect yamtrack` for redis as podman dns is disabled
+        REDIS_URL = "redis://10.89.0.2:6379"; #using the ip from the cmd `podman network inspect yamtrack` for redis as podman dns is disabled
         URLS = "https://yamtrack.junaga.com";
         REGISTRATION = "False";
 	HEALTHCHECK_CELERY_PING_TIMEOUT = "60";
