@@ -41,6 +41,13 @@ in {
         "guest ok" = "no";
         "valid users" = "julen, nagore";
       };
+      media = {
+        path = "/zstorage/media";
+        browseable = "yes";
+        "read only" = "no";
+        "guest ok" = "no";
+        "valid users" = "julen";
+      };
     };
   };
 
