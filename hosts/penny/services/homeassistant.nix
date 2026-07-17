@@ -2,7 +2,7 @@
 let
   vars = {
     homeassistant = {
-      version = "2026.6";
+      version = "2026.7";
       port = 8123;
     };
     nut-upsd = {
