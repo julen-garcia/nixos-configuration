@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  port = 32400;
+in
 {
 
   services.plex = {
@@ -6,6 +9,6 @@
     group = "media";
   };
 
-  reverseProxy.hosts.plex.httpPort = config.services.plex.settings.server.port;
+  reverseProxy.hosts.plex.httpPort = port;
 
 }
