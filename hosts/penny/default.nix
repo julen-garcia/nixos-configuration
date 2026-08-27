@@ -95,6 +95,16 @@
 
   services.tailscale.useRoutingFeatures = "server";
 
+  # limit journal size
+  services.journald = {
+    storage = "persistent"; # Keeps logs across reboots (/var/log/journal)
+    rateLimitBurst = 1000;
+    rateLimitInterval = "1s";
+    extraConfig = ''
+      SystemMaxUse=128M
+    '';
+  };
+
   # # Enable Wake On Lan
   # networking.interfaces.enp5s0.wakeOnLan.enable = true;
 
@@ -107,3 +117,4 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
+
