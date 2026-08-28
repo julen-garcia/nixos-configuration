@@ -45,13 +45,6 @@
     };
   };
 
-  # Create a swap file for hibernation.
-  swapDevices = [
-    {
-      device = "/var/lib/swapfile";
-      size = 10 * 1024; # 10 GiB
-    }
-  ];
   zramSwap.enable = true;
 
   environment.systemPackages = with pkgs; [
