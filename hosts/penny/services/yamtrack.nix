@@ -52,7 +52,7 @@ in {
         REDIS_URL = "redis://10.89.0.10:6379"; #using the ip from the cmd `podman network inspect yamtrack` for redis as podman dns is disabled
         URLS = "https://yamtrack.junaga.com";
         REGISTRATION = "False";
-	HEALTHCHECK_CELERY_PING_TIMEOUT = "60";
+        HEALTHCHECK_CELERY_PING_TIMEOUT = "60";
       };
 
       volumes = [

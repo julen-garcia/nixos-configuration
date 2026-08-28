@@ -2,7 +2,7 @@
 let
   vars = {
     config-path = "/var/lib/gluetun";
-    version = "v3.41.0";
+    version = "v3.41.3";
   };
 in {
   # Import the needed secrets

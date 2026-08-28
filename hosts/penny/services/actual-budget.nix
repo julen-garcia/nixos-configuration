@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let 
-  version = "26.7.0";
+  version = "26.8.1";
   port = 5006;
   dataPath = "/var/lib/actual-budget";
   user = "actual-budget";
