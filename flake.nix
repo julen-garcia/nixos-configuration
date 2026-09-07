@@ -28,6 +28,8 @@
       inputs.home-manager.follows = "home-manager";
     };
 
+    jellarr.url = "github:venkyr77/jellarr";
+
     nixarr.url = "github:rasmus-kirk/nixarr";
 
   };
