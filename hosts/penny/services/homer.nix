@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }:
 let
-  version = "v26.08.2";
+  version = "v26.08.3";
   dataPath = "/var/lib/homer";
   port = 5002;
   user = "homer";
@@ -169,6 +169,11 @@ let
             name = "Yamtrack";
             logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/yamtrack.svg";
             url = "https://yamtrack.junaga.com";
+          }
+          {
+            name = "Jellyfin";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/jellyfin.svg";
+            url = "https://jellyfin.junaga.com";
           }
           {
             name = "Radarr";

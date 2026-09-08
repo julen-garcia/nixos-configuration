@@ -112,7 +112,7 @@ in
           "wallaos.junaga.com,penny.junaga.com"
           "grafana.junaga.com,penny.junaga.com"
           "yamtrack.junaga.com,penny.junaga.com"
-          "plex.junaga.com,penny.junaga.com"
+          "jellyfin.junaga.com,penny.junaga.com"
         ];
 
         expandHosts = true;
