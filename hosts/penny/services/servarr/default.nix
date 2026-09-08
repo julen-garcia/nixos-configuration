@@ -8,6 +8,5 @@
     ./vpn.nix
     ./qbittorrent.nix
     ./nixarr.nix
-    ./plex.nix
   ];
 }
