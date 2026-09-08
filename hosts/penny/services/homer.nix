@@ -171,6 +171,11 @@ let
             url = "https://yamtrack.junaga.com";
           }
           {
+            name = "Jellyfin";
+            logo = "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/jellyfin.svg";
+            url = "https://jellyfin.junaga.com";
+          }
+          {
             name = "Radarr";
             logo = "https://raw.githubusercontent.com/Radarr/Radarr/refs/heads/develop/Logo/Radarr.svg";
             url = "https://radarr.junaga.com";
