@@ -84,7 +84,41 @@
     domain = "junaga.com";
     hostId = "061b8a2f";
   };
-  systemd.network.wait-online.enable = true;
+
+  systemd.network = {
+    wait-online = {
+      enable = true;
+      anyInterface = true;
+    };
+
+    links = {
+      "10-lan1s1g" = {
+        matchConfig.MACAddress = "78:55:36:02:92:19";
+        linkConfig.Name = "enp1s0";
+      };
+      "10-enp2s0" = {
+        matchConfig.MACAddress = "78:55:36:02:92:18";
+        linkConfig.Name = "enp2s0";
+      };
+    };
+
+    networks = {
+
+      "20-iotVlan-net" = {
+        matchConfig.Name = "enp2s0";
+        networkConfig = {
+          DHCP = "yes";
+        };
+        dhcpV4Config.UseRoutes = false; # Do not use this interfaces for internet access
+      };
+
+    };
+  };
+
+  networking.firewall = {
+    enable = true;
+    allowPing = true;
+  };
 
   services.tailscale.useRoutingFeatures = "server";
 
@@ -110,4 +144,5 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
+
 
