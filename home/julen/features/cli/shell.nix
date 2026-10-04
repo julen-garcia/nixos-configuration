@@ -1,6 +1,31 @@
 { pkgs, ... }:
 
+let
+  ohMyPoshConfig = pkgs.stdenv.mkDerivation {
+
+    name = "oh-my-posh-config.json";
+
+    dontUnpack = true;
+
+    nativeBuildInputs = [ pkgs.curl ];
+
+    outputHashAlgo = "sha256";
+    outputHashMode = "flat";
+    outputHash = "sha256-nOgNJtE1WvI0+n5sNx9IODInC5rXZYR0h+Wf0hlI23c=";
+
+    buildPhase = ''
+      export CURL_CA_BUNDLE=${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt
+      curl --fail --location --silent --show-error \
+        https://raw.githubusercontent.com/julen-garcia/oh-my-posh-themes/refs/heads/main/amro_customized.omp.json \
+        -o $out
+    '';
+
+    installPhase = "true";
+  };
+in
 {
+
+  home.file.".config/oh-my-posh-config.json".source = ohMyPoshConfig;
 
   programs.bash = {
     enable = true;
@@ -17,10 +42,10 @@
       serverSope = "ssh serverSope";
       vim = "nvim";
       "..." = "cd ../..";
-      };
+    };
     interactiveShellInit = ''
       set fish_greeting ""
-      oh-my-posh init fish --config https://raw.githubusercontent.com/julen-garcia/oh-my-posh-themes/refs/heads/main/amro_customized.omp.json | source
+      oh-my-posh init fish --config ${ohMyPoshConfig} | source
     '';
   };
 
@@ -56,7 +81,7 @@
   programs.ripgrep = {
     enable = true;
   };
- 
+
   # Better resource monitor
   programs.btop = {
     enable = true;
@@ -98,7 +123,7 @@
     # productivity
     glow # markdown previewer in terminal
     #
-    btop  # replacement of htop/nmon
+    btop # replacement of htop/nmon
     iftop # network monitoring
     # system tools
     ethtool

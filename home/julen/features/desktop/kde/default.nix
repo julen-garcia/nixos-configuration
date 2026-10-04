@@ -8,6 +8,7 @@
     ./konsole
     ./kate.nix
     ./plasma-settings.nix
+    ./register-ssh-key.nix
   ];
 
 
