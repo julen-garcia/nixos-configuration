@@ -36,6 +36,7 @@
     ./services/monitoring.nix
     ./services/servarr
     ./services/yamtrack.nix
+    ./services/mosquitto.nix
   ];
 
   # Import the needed secrets
