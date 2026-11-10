@@ -35,6 +35,7 @@ in {
       extraOptions = [
         "--network=yamtrack"
         "--name=yamtrack-redis"
+	"--ip=10.89.0.2"
       ];
     };
 
@@ -85,7 +86,7 @@ in {
 
     script = ''
       ${pkgs.podman}/bin/podman network exists yamtrack || \
-      ${pkgs.podman}/bin/podman network create --disable-dns yamtrack
+      ${pkgs.podman}/bin/podman network create --disable-dns --subnet 10.89.0.0/24 --gateway 10.89.0.1 yamtrack
     '';
   };
 

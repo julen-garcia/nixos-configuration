@@ -31,7 +31,7 @@
 
   donetick = {
     enable = true;
-    version = "v0.1.85";
+    version = "v0.1.86";
     environment = {
       DT_IS_USER_CREATION_DISABLED="true";
       DT_OAUTH2_AUTH_URL="https://pocketid.junaga.com/authorize";

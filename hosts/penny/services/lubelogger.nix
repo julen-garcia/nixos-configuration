@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }:
 let
-  version = "v1.7.3";
+  version = "v1.7.4";
   dataPath = "/var/lib/lubelogger";
   port = 5001;
   user = "lubelogger";

@@ -182,7 +182,7 @@ let
           }
           {
             name = "Sonarr";
-            logo = "https://raw.githubusercontent.com/Sonarr/Sonarr/refs/heads/v5-develop/Logo/Sonarr.svg";
+            logo = "https://raw.githubusercontent.com/Sonarr/Sonarr/refs/heads/develop/Logo/Sonarr.svg";
             url = "https://sonarr.junaga.com";
           }
           {
